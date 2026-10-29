@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calaverita Literaria | Ing. Jorge Martínez Muñoz</title>
+  <meta name="description" content="Presentación interactiva de la Calaverita Literaria dedicada al Ing. Jorge Martínez Muñoz, organizada por la Comunidad de Ciencias Computacionales: Fundamentos, POO y Bases de Datos.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;800;900&family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="deck-body">
+
+  <!-- ==================================================================== -->
+  <!-- SPRITE DE ICONOS SVG (reemplaza emojis) + LOGO ITP TEMATIZADO         -->
+  <!-- ==================================================================== -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+    <defs>
+      <clipPath id="itpDomeClip">
+        <path d="M22 112 C22 52 62 18 104 18 C146 18 184 52 184 112 Z"/>
+      </clipPath>
+    </defs>
+
+    <!-- Logo ITP con los colores de la portada (morado Mictlán + cempasúchil) -->
+    <symbol id="logo-itp" viewBox="0 0 200 170">
+      <!-- engrane -->
+      <circle cx="64" cy="142" r="20" fill="none" stroke="#8A7AA0" stroke-width="10" stroke-dasharray="6 5.4"/>
+      <circle cx="64" cy="142" r="16" fill="#5A4A6E"/>
+      <circle cx="64" cy="142" r="6" fill="#12031B"/>
+      <!-- casco -->
+      <path d="M22 112 C22 52 62 18 104 18 C146 18 184 52 184 112 Z" fill="#2A0A3A" stroke="#FFAA00" stroke-width="4"/>
+      <path d="M182 72 h14 v26 h-14" fill="#2A0A3A" stroke="#FFAA00" stroke-width="3.5"/>
+      <!-- órbitas del átomo -->
+      <g clip-path="url(#itpDomeClip)" fill="none" stroke="#FFAA00" stroke-width="4.5" stroke-linecap="round">
+        <path d="M30 108 C30 40 140 10 170 96"/>
+        <path d="M50 108 C52 56 120 36 150 100"/>
+        <path d="M72 108 C70 40 150 40 158 104"/>
+      </g>
+      <g fill="#FF5500" stroke="#FFD27A" stroke-width="2.5">
+        <circle cx="62.3" cy="53.9" r="7"/>
+        <circle cx="111.3" cy="56.5" r="7"/>
+        <circle cx="134.3" cy="76.7" r="7"/>
+      </g>
+      <!-- fábrica -->
+      <polygon points="26,112 26,106 36,100 36,106 46,100 46,106 56,100 56,106 66,100 66,112" fill="#FF8A00"/>
+      <text x="32" y="94" font-family="Outfit, Arial, sans-serif" font-weight="900" font-size="24" fill="#FFAA00" stroke="#12031B" stroke-width="2" paint-order="stroke">ITP</text>
+      <!-- ala del casco -->
+      <path d="M10 110 H194 V120 H10 Z" fill="#3A0D4C" stroke="#FFAA00" stroke-width="3" stroke-linejoin="round"/>
+      <!-- matraz -->
+      <path d="M104 118 V134 L90 162 H134 L120 134 V118 Z" fill="#12031B" stroke="#FFF4E0" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M95.5 151 H128.5 L132.5 159.5 H91.5 Z" fill="#FF5500" opacity=".9"/>
+      <!-- águila y rayo -->
+      <path d="M150 124 C164 118 180 124 182 138 C183 150 176 160 166 164 L160 156 C166 152 168 146 164 142 L154 144 L146 138 C150 136 152 132 150 124 Z" fill="#D4380D" stroke="#12031B" stroke-width="1.5"/>
+      <path d="M150 124 L139 130 L148 134 Z" fill="#FFAA00"/>
+      <circle cx="160" cy="131" r="2.2" fill="#FFD27A"/>
+      <path d="M178 118 L166 140 L175 140 L162 166 L188 134 L178 134 L186 118 Z" fill="#FFAA00" stroke="#12031B" stroke-width="1.2"/>
+      <text x="184" y="22" font-size="14" fill="#FFAA00" font-family="Arial, sans-serif">®</text>
+    </symbol>
+
+    <!-- Papel picado recortado (sin emojis) -->
+    <symbol id="papel" viewBox="0 0 60 80">
+      <path fill-rule="evenodd" d="M0 0 H60 V66 L55 72 L50 66 L45 72 L40 66 L35 72 L30 66 L25 72 L20 66 L15 72 L10 66 L5 72 L0 66 Z
+        M39 32 a9 9 0 1 0 -18 0 a9 9 0 1 0 18 0 Z
+        M34 15 a4 4 0 1 0 -8 0 a4 4 0 1 0 8 0 Z
+        M34 49 a4 4 0 1 0 -8 0 a4 4 0 1 0 8 0 Z
+        M51 32 a4 4 0 1 0 -8 0 a4 4 0 1 0 8 0 Z
+        M17 32 a4 4 0 1 0 -8 0 a4 4 0 1 0 8 0 Z
+        M8 6 l4 4 l-4 4 l-4 -4 Z M52 6 l4 4 l-4 4 l-4 -4 Z
+        M8 50 l4 4 l-4 4 l-4 -4 Z M52 50 l4 4 l-4 4 l-4 -4 Z
+        M14 58 l4 5 h-8 Z M30 58 l4 5 h-8 Z M46 58 l4 5 h-8 Z"/>
+    </symbol>
+
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c1 3 4 5 4 9a4 4 0 0 1-8 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 0-8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-crow" viewBox="0 0 24 24"><path d="M2 14c3 .5 5-1 7-4l4-3 4 .5 4-1.5-2.5 3-3 1-2 4c-2 3-6 4.5-11 4.5l2.5-2.5L2 14z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-compress" viewBox="0 0 24 24"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-sound-on" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></g></symbol>
+    <symbol id="i-sound-off" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9l5 6M22 9l-5 6"/></g></symbol>
+    <symbol id="i-replay" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.3-5.7"/><path d="M4 4v4h4"/></g></symbol>
+    <symbol id="i-skip" viewBox="0 0 24 24"><path d="M4 5l8 7-8 7zM12 5l8 7-8 7z" fill="currentColor"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></g></symbol>
+    <symbol id="i-scroll" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M9 9h7M9 13h7M9 17h4"/></g></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M8 2h8l6 6v8l-6 6H8l-6-6V8z"/><path d="M12 7v6M12 16.5v.5"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-inject" viewBox="0 0 24 24"><path d="M18 2l4 4M15 5l4 4M17 7l-9 9-4 1 1-4 9-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-skull" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3a8 8 0 0 0-8 8c0 2.5 1.2 4.3 3 5.5V20h10v-3.5c1.8-1.2 3-3 3-5.5a8 8 0 0 0-8-8z"/><circle cx="9" cy="11.5" r="1.7"/><circle cx="15" cy="11.5" r="1.7"/><path d="M10 20v-2M14 20v-2M12 14l-1 2h2z"/></g></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></symbol>
+  </svg>
+
+  <!-- Live region para lectores de pantalla -->
+  <div id="screen-reader-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Micro-interacción OBLIGATORIA Pantalla 3: El Silencio -->
+  <div id="silenceOverlay" class="silence-overlay" aria-hidden="true">
+    <div class="silence-indicator">
+      <div class="silence-emoji-badge" aria-hidden="true">
+        <span class="silence-emoji">🤫</span>
+        <span class="silence-cricket">🦗</span>
+        <span class="silence-candle">🕯️</span>
+      </div>
+      <span class="silence-text">...y el salón volvió a callar.</span>
+      <div class="silence-countdown-badge">
+        <span class="silence-sand-icon">⏳</span>
+        <span class="silence-sub" id="silenceCountdown">Silencio en el aula · 3s</span>
+      </div>
+      <div class="silence-timer-bar"><div class="silence-timer-fill" id="silenceTimerFill"></div></div>
+    </div>
+  </div>
+
+  <div class="presentation-container" id="presentationContainer">
+
+    <!-- Barra superior -->
+    <header class="deck-header">
+      <div class="deck-header-left">
+        <svg class="header-logo" viewBox="0 0 200 170" aria-hidden="true"><use href="#logo-itp"/></svg>
+        <div class="header-titles-box">
+          <span class="header-title">CALAVERITA LITERARIA</span>
+          <span class="header-tag">Comunidad de Ciencias Computacionales</span>
+        </div>
+      </div>
+
+      <nav class="deck-nav-dots" aria-label="Navegación de diapositivas">
+        <button class="nav-dot active" data-screen="1" title="Portada"><span class="dot-num">1</span><span class="dot-label">Portada</span></button>
+        <button class="nav-dot" data-screen="2" title="Fundamentos"><span class="dot-num">2</span><span class="dot-label">Fundamentos</span></button>
+        <button class="nav-dot" data-screen="3" title="Programación Orientada a Objetos"><span class="dot-num">3</span><span class="dot-label">POO</span></button>
+        <button class="nav-dot" data-screen="4" title="Bases de Datos"><span class="dot-num">4</span><span class="dot-label">Bases de Datos</span></button>
+      </nav>
+
+      <div class="deck-header-right">
+        <button id="fullscreenToggleBtn" class="header-action-btn fullscreen-btn" title="Pantalla completa (F)" aria-label="Alternar pantalla completa">
+          <svg class="ico"><use id="fsIconUse" href="#i-expand"/></svg><span id="fsText" class="hab-label">Pantalla completa</span>
+        </button>
+        <button id="soundToggleBtn" class="header-action-btn sound-btn" title="Sonido (M)" aria-label="Alternar sonido">
+          <svg class="ico"><use id="soundIconUse" href="#i-sound-on"/></svg><span id="soundLabel" class="hab-label">Sonido</span>
+        </button>
+        <button id="helpModalBtn" class="header-action-btn help-btn" title="Ayuda y atajos" aria-label="Ver ayuda">?</button>
+      </div>
+    </header>
+
+    <div class="slide-progress-track"><div class="slide-progress-bar" id="slideProgressBar"></div></div>
+
+
+    <!-- ==================================================================== -->
+    <!-- PANTALLA 1: PORTADA — Cementerio nocturno con tormenta y cuervo       -->
+    <!-- ==================================================================== -->
+    <section class="slide-screen screen-portada active" id="screen1" aria-label="Pantalla 1: Portada">
+      <canvas id="cemeteryCanvas" class="cemetery-canvas" aria-hidden="true"></canvas>
+      <div class="thunder-flash" id="thunderFlash" aria-hidden="true"></div>
+
+      <div class="papel-picado-banner" aria-hidden="true">
+        <div class="papel-flag c-orange"><svg viewBox="0 0 60 80"><use href="#papel"/></svg></div>
+        <div class="papel-flag c-magenta"><svg viewBox="0 0 60 80"><use href="#papel"/></svg></div>
+        <div class="papel-flag c-gold"><svg viewBox="0 0 60 80"><use href="#papel"/></svg></div>
+        <div class="papel-flag c-purple"><svg viewBox="0 0 60 80"><use href="#papel"/></svg></div>
+        <div class="papel-flag c-orange"><svg viewBox="0 0 60 80"><use href="#papel"/></svg></div>
+        <div class="papel-flag c-magenta"><svg viewBox="0 0 60 80"><use href="#papel"/></svg></div>
+        <div class="papel-flag c-gold"><svg viewBox="0 0 60 80"><use href="#papel"/></svg></div>
+        <div class="papel-flag c-purple"><svg viewBox="0 0 60 80"><use href="#papel"/></svg></div>
+        <div class="papel-flag c-orange"><svg viewBox="0 0 60 80"><use href="#papel"/></svg></div>
+        <div class="papel-flag c-magenta"><svg viewBox="0 0 60 80"><use href="#papel"/></svg></div>
+      </div>
+
+      <div class="portada-vignette" aria-hidden="true"></div>
+
+      <div class="portada-content">
+        <div class="institution-logos-row">
+          <div class="logo-box logo-itp" title="ITP">
+            <svg viewBox="0 0 200 170" role="img" aria-label="Logo del ITP"><use href="#logo-itp"/></svg>
+          </div>
+          <div class="logo-divider" aria-hidden="true"><span></span><svg class="ico"><use href="#i-skull"/></svg><span></span></div>
+          <div class="logo-box logo-ccc" title="Comunidad de Ciencias Computacionales">
+            <span class="ccc-mark">&lt;/&gt;</span>
+            <span class="ccc-text"><small>Comunidad de</small><strong>Ciencias Computacionales</strong></span>
+          </div>
+        </div>
+
+        <div class="portada-titles">
+          <p class="portada-kicker">Día de Muertos · 2026</p>
+          <h1 class="main-title-festive">Calaverita Literaria</h1>
+          <p class="subtitle-festive">Dedicada al:</p>
+
+          <!-- Micro-interacción OBLIGATORIA: El toque eléctrico -->
+          <div class="electric-name-wrapper" id="electricNameWrapper" tabindex="0" role="button" aria-label="Ing. Jorge Martínez Muñoz. Pasa el cursor o haz clic para la descarga eléctrica">
+            <h2 class="professor-electric-name" id="professorName">Ing. Jorge Martínez Muñoz</h2>
+            <div class="electric-hint">
+              <svg class="ico"><use href="#i-bolt"/></svg>
+              Pasa el cursor sobre el nombre
+              <svg class="ico"><use href="#i-bolt"/></svg>
+            </div>
+            <div class="electric-subtitle-tag">
+              <span class="electric-badge-pill">Fundamentos · POO · Bases de Datos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="portada-actions">
+          <button class="btn-iniciar-pulsing" id="btnIniciar" onclick="goToScreen(2)" aria-label="Iniciar presentación y avanzar a Fundamentos">
+            <span class="btn-iniciar-text">INICIAR CALAVERITA</span>
+            <span class="btn-subtext">Avanzar a Fundamentos <svg class="ico"><use href="#i-arrow"/></svg></span>
+          </button>
+
+          <div class="portada-extra-buttons">
+            <button class="btn-secondary-interactive" id="btnLightning" onclick="triggerLightningAction()" title="Hace caer relámpagos sobre el cementerio">
+              <svg class="ico"><use href="#i-bolt"/></svg> Invocar relámpago
+            </button>
+            <button class="btn-secondary-interactive" id="btnIgniteCandles" onclick="igniteCandlesAction()" title="Aviva las veladoras de las tumbas">
+              <svg class="ico"><use href="#i-flame"/></svg> Encender veladoras
+            </button>
+            <button class="btn-secondary-interactive" id="btnCrow" onclick="triggerCrowAction()" title="El cuervo grazna y alza el vuelo">
+              <svg class="ico"><use href="#i-crow"/></svg> Despertar al cuervo
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <p class="portada-hint">Clic en el cielo: relámpago &nbsp;·&nbsp; Clic en el cuervo: alza el vuelo &nbsp;·&nbsp; Clic en una veladora: aviva la llama</p>
+    </section>
+
+
+    <!-- ==================================================================== -->
+    <!-- PANTALLA 2: FUNDAMENTOS (Azul / Editor de Código)                     -->
+    <!-- ==================================================================== -->
+    <section class="slide-screen screen-fundamentos" id="screen2" aria-label="Pantalla 2: Fundamentos">
+      <div class="ide-window" id="ideWindowFundamentos">
+        <div class="ide-titlebar">
+          <div class="ide-window-dots" aria-hidden="true">
+            <span class="dot dot-close"></span><span class="dot dot-minimize"></span><span class="dot dot-maximize"></span>
+          </div>
+          <div class="ide-tabs-container">
+            <div class="ide-tab active" id="fundamentosTab">
+              <span class="file-badge badge-java" id="tabFileIcon">J</span>
+              <span class="tab-title" id="tabFileName">ExamenFinal.java</span>
+            </div>
+          </div>
+          <div class="ide-branch-badge">git:(<span class="branch-text">don-jorge/revision-estricta</span>)</div>
+        </div>
+
+        <div class="ide-main-layout">
+          <aside class="ide-sidebar" aria-label="Explorador de archivos">
+            <div class="sidebar-header">EXPLORADOR</div>
+            <ul class="file-tree">
+              <li class="file-item folder-open"><span class="tree-caret">▾</span> examen_semestre_1</li>
+              <li class="file-item" id="treeJavaFile"><span class="file-badge badge-java">J</span> ExamenFinal.java</li>
+              <li class="file-item" id="treePyFile" style="display:none;"><span class="file-badge badge-py">PY</span> fundamentos.py</li>
+              <li class="file-item"><span class="file-badge badge-js">JS</span> script_muerte.js</li>
+            </ul>
+          </aside>
+
+          <div class="ide-editor-area">
+            <div class="ide-gutter" aria-hidden="true">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+              <span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+            </div>
+            <div class="ide-code-surface">
+              <pre class="code-output" id="javaCodeOutput"></pre>
+              <div class="python-code-card" id="pythonCodeCard" style="display:none;">
+                <div class="python-card-header">
+                  <span class="py-badge">PYTHON 3.12 AUTORIZADO</span>
+                  <span class="py-comment"># Versos oficiales de la Calaverita</span>
+                </div>
+                <div class="python-verses-container" id="pythonCodeOutput"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal de error gigante OBLIGATORIO -->
+        <div class="giant-fatal-modal" id="fatalJavaModal" aria-hidden="true" role="alertdialog">
+          <div class="modal-dialog-box">
+            <svg class="modal-stop-icon" aria-hidden="true"><use href="#i-stop"/></svg>
+            <h2 class="modal-error-title">[ERROR FATAL]</h2>
+            <div class="modal-error-body">
+              <p class="error-highlight">LENGUAJE JAVA NO PERMITIDO.</p>
+              <p class="error-grade">CALIFICACIÓN: <strong>N/A</strong></p>
+              <div class="error-quote-box">
+                <p class="error-quote">"Don Jorge vio el programa y le cobró la renta:</p>
+                <p class="error-quote-emp">¡Aquí es puro Python o mi amado JavaScript!"</p>
+              </div>
+            </div>
+            <div class="modal-auto-dismiss-bar"><div class="dismiss-progress" id="dismissProgress"></div></div>
+          </div>
+        </div>
+
+        <div class="ide-statusbar">
+          <div class="status-left">
+            <span class="status-mode" id="ideModeIndicator">JAVA RUNTIME 21</span>
+            <span class="status-error-badge" id="ideErrorBadge">0 ERRORES</span>
+            <span class="status-encoding">UTF-8</span>
+          </div>
+          <div class="status-controls">
+            <button class="ide-ctrl-btn" id="btnReplayScreen2" title="Repetir animación"><svg class="ico"><use href="#i-replay"/></svg> Repetir</button>
+            <button class="ide-ctrl-btn" id="btnSkipScreen2" title="Mostrar resultado final"><svg class="ico"><use href="#i-skip"/></svg> Saltar</button>
+            <button class="screen-next-btn" id="btnNextFromScreen2" disabled>Continuar a POO <svg class="ico"><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================================================================== -->
+    <!-- PANTALLA 3: POO — Diagrama UML vivo, arrastrable y ejecutable          -->
+    <!-- ==================================================================== -->
+    <section class="slide-screen screen-poo" id="screen3" aria-label="Pantalla 3: Programación Orientada a Objetos">
+      <div class="poo-workspace" id="pooWorkspace">
+
+        <div class="poo-header">
+          <div class="poo-header-left">
+            <span class="poo-header-badge">UML · DIAGRAMA DE CLASES</span>
+            <h2 class="poo-title">SISTEMA_CALIFICACIONES<span class="poo-title-ext">.uml</span></h2>
+          </div>
+          <div class="uml-legend" aria-label="Leyenda de relaciones">
+            <span class="lg"><svg width="34" height="12"><line x1="2" y1="6" x2="24" y2="6" class="lg-solid"/><path d="M22 1 L32 6 L22 11 Z" class="lg-tri"/></svg>Herencia</span>
+            <span class="lg"><svg width="34" height="12"><line x1="2" y1="6" x2="30" y2="6" class="lg-dash"/><path d="M24 1 L32 6 L24 11" class="lg-open"/></svg>Dependencia</span>
+            <span class="lg"><svg width="34" height="12"><path d="M1 6 L7 1 L13 6 L7 11 Z" class="lg-dia"/><line x1="13" y1="6" x2="32" y2="6" class="lg-solid"/></svg>Composición</span>
+            <span class="lg"><svg width="34" height="12"><line x1="2" y1="6" x2="30" y2="6" class="lg-solid"/><path d="M24 1 L32 6 L24 11" class="lg-open"/></svg>Asociación</span>
+          </div>
+          <button class="ide-ctrl-btn poo-layout-btn" id="btnUmlLayout" title="Regresar las clases a su lugar"><svg class="ico"><use href="#i-grid"/></svg> Reordenar</button>
+        </div>
+
+        <div class="uml-board" id="umlBoard">
+          <svg class="uml-links" id="umlLinks" aria-hidden="true">
+            <defs>
+              <marker id="mInherit" viewBox="0 0 20 20" refX="19" refY="10" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M1 1 L19 10 L1 19 Z" fill="#100A1C" stroke="#00E5FF" stroke-width="2"/>
+              </marker>
+              <marker id="mArrow" viewBox="0 0 20 20" refX="18" refY="10" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M2 2 L18 10 L2 18" fill="none" stroke="#BD5FFF" stroke-width="2.4"/>
+              </marker>
+              <marker id="mArrowGreen" viewBox="0 0 20 20" refX="18" refY="10" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M2 2 L18 10 L2 18" fill="none" stroke="#10E3A0" stroke-width="2.4"/>
+              </marker>
+              <marker id="mDiamond" viewBox="0 0 20 20" refX="1" refY="10" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto">
+                <path d="M1 10 L10 4 L19 10 L10 16 Z" fill="#FFAA00" stroke="#FFAA00" stroke-width="1.5"/>
+              </marker>
+            </defs>
+            <g id="umlLinkLayer"></g>
+          </svg>
+
+          <!-- Alumno (abstracta) -->
+          <div class="uml-node" id="nodeAlumno" data-fx="0.02" data-fy="0.04">
+            <div class="uml-node-header"><span class="uml-tag">«abstract»</span><strong>Alumno</strong></div>
+            <div class="uml-node-body">
+              <div class="uml-attr"># matricula: String</div>
+              <div class="uml-attr"># calificacionDeseada: int = 70</div>
+              <div class="uml-sep"></div>
+              <button class="uml-method" data-call="alumno.asistirAClase">+ asistirAClase(): void</button>
+              <button class="uml-method" data-call="alumno.solicitarPuntos">+ solicitarPuntos(): boolean</button>
+            </div>
+          </div>
+
+          <!-- Profesor -->
+          <div class="uml-node" id="nodeProfesor" data-fx="0.98" data-fy="0.04">
+            <div class="uml-node-header"><span class="uml-tag">«docente»</span><strong>Profesor</strong></div>
+            <div class="uml-node-body">
+              <div class="uml-attr">- nombre = "Ing. Jorge M. M."</div>
+              <div class="uml-attr uml-mem-row">- memoria: Heap
+                <span class="mem-bar"><span class="mem-fill" id="profMemFill"></span></span>
+                <span class="mem-label" id="profMemLabel">32%</span>
+              </div>
+              <div class="uml-sep"></div>
+              <button class="uml-method" data-call="profesor.revisarCodigo">+ revisarCodigo(c): Calificacion</button>
+              <button class="uml-method" data-call="profesor.abrirChatGPT">+ abrirChatGPT(): Respuesta</button>
+            </div>
+          </div>
+
+          <!-- Muerte extends Alumno (caja central OBLIGATORIA) -->
+          <div class="uml-node uml-node-main" id="classMuerteNode" data-fx="0.5" data-fy="0.5">
+            <div class="uml-node-header">
+              <svg class="ico uml-skull" aria-hidden="true"><use href="#i-skull"/></svg>
+              <strong>class Muerte extends Alumno</strong>
+            </div>
+            <div class="uml-node-body">
+              <div class="uml-attr-row"><span>- paciencia: int</span><span class="val-code">0</span></div>
+              <div class="uml-attr-row"><span>- hilo: Thread</span><span class="thread-state" id="muerteThreadState">RUNNABLE</span></div>
+
+              <div class="chatgpt-generating-pill" id="chatGptPill" style="display:none;">
+                <span class="gpt-orb" aria-hidden="true"></span>
+                <span class="chatgpt-text" id="chatGptPillText">ChatGPT está generando una respuesta...</span>
+                <span class="chatgpt-dots"><span>.</span><span>.</span><span>.</span></span>
+              </div>
+
+              <div class="stanza-2-code-box" id="stanza2CodeBox">
+                <div class="stanza-title-badge">// toString() → Estrofa 2</div>
+                <div class="verse-line" id="pooVerse1"></div>
+                <div class="verse-line" id="pooVerse2"></div>
+                <div class="verse-line" id="pooVerse3"></div>
+                <div class="verse-line" id="pooVerse4"></div>
+              </div>
+              <button class="uml-method" data-call="muerte.compilar">+ compilar(): void</button>
+            </div>
+          </div>
+
+          <!-- ChatGPT (interfaz) -->
+          <div class="uml-node uml-node-gpt" id="nodeChatGPT" data-fx="0.98" data-fy="0.96">
+            <div class="uml-node-header"><span class="uml-tag">«interface»</span><strong>ChatGPT</strong><span class="gpt-status" id="gptStatus">inactivo</span></div>
+            <div class="uml-node-body">
+              <button class="uml-method" data-call="chatgpt.generarRespuesta">+ generarRespuesta(prompt): String</button>
+              <button class="uml-method" data-call="chatgpt.explicarPOO">+ explicarPOO(): String</button>
+              <div class="gpt-reply" id="gptReply"></div>
+            </div>
+          </div>
+
+          <!-- Salón de clases -->
+          <div class="uml-node" id="nodeSalon" data-fx="0.02" data-fy="0.96">
+            <div class="uml-node-header"><span class="uml-tag">«observer»</span><strong>SalonDeClases</strong></div>
+            <div class="uml-node-body">
+              <div class="uml-attr">- alumnos: List&lt;Alumno&gt;</div>
+              <div class="uml-attr-row"><span>- dudas: int</span><span class="val-code" id="salonDudas">—</span></div>
+              <div class="uml-sep"></div>
+              <button class="uml-method" data-call="salon.pedirDudas">+ pedirDudas(): void</button>
+              <button class="uml-method" data-call="salon.callar">+ callar(): void</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="poo-footer-bar">
+          <div class="poo-console" aria-live="polite">
+            <span class="poo-prompt">uml&gt;</span>
+            <span class="poo-status" id="pooStatusText">Inicializando arquitectura de clases...</span>
+          </div>
+          <div class="poo-controls">
+            <span class="poo-tip">Arrastra las clases · Clic en los métodos</span>
+            <button class="ide-ctrl-btn" id="btnReplayScreen3"><svg class="ico"><use href="#i-replay"/></svg> Repetir</button>
+            <button class="ide-ctrl-btn" id="btnSkipScreen3"><svg class="ico"><use href="#i-skip"/></svg> Saltar</button>
+            <button class="screen-next-btn" id="btnNextFromScreen3" style="display:none;">Continuar a Bases de Datos <svg class="ico"><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================================================================== -->
+    <!-- PANTALLA 4: BASES DE DATOS — Clúster de servidores + Holograma 3D     -->
+    <!-- ==================================================================== -->
+    <section class="slide-screen screen-sql" id="screen4" aria-label="Pantalla 4: Bases de Datos">
+      <div class="db-stage" id="sqlTerminalStage">
+
+        <div class="db-topbar">
+          <div class="db-topbar-left">
+            <span class="db-brand">MictlánDB <em>Cluster</em></span>
+            <span class="db-pill"><span class="db-ping-dot"></span><span id="dbOnlineCount">0/8</span> nodos en línea</span>
+            <span class="db-pill">latencia <span id="dbLatency">-- ms</span></span>
+          </div>
+          <div class="db-conn">postgres://purgatorio.local:5432/muerte_db</div>
+        </div>
+
+        <div class="db-query-bar">
+          <span class="sql-prompt">don_jorge_db=#</span>
+          <span class="sql-command-typing" id="sqlCommandTyping"></span><span class="sql-cursor">█</span>
+          <span class="db-query-status" id="dbQueryStatus"></span>
+          <div class="db-query-actions">
+            <button class="ide-ctrl-btn" id="btnDbInject" disabled title="La Muerte intenta otra inyección SQL"><svg class="ico"><use href="#i-inject"/></svg> Intentar inyección</button>
+            <button class="ide-ctrl-btn" id="btnDbReplay" title="Volver a ejecutar la consulta"><svg class="ico"><use href="#i-play"/></svg> Ejecutar de nuevo</button>
+          </div>
+        </div>
+
+        <div class="db-main">
+          <!-- Red de servidores (estilo clúster) -->
+          <div class="db-network" id="dbNetwork">
+            <div class="db-floor" aria-hidden="true"></div>
+            <svg class="db-links" id="dbLinks" aria-hidden="true"></svg>
+            <div class="db-firewall" id="dbFirewall" aria-hidden="true"><svg class="ico"><use href="#i-shield"/></svg></div>
+            <div class="db-scan-ring" id="dbScanRing" aria-hidden="true"></div>
+            <div class="db-packet-layer" id="dbPacketLayer" aria-hidden="true"></div>
+            <!-- nodos generados por dbnet.js -->
+            <div class="db-node-info" id="dbNodeInfo" role="dialog" aria-live="polite"></div>
+          </div>
+
+          <!-- Resultados: holograma 3D OBLIGATORIO -->
+          <div class="db-results">
+            <div class="hologram-3d-wrapper" id="hologram3dWrapper">
+              <div class="hologram-light-emitter" aria-hidden="true"></div>
+              <div class="holo-float">
+                <div class="hologram-3d-table-card" id="hologramTableCard">
+                  <div class="table-hologram-header">
+                    <span class="holo-title">SELECT * FROM purgatorio;</span>
+                    <span class="holo-rows-count" id="holoRowsCount">[0 REGISTROS]</span>
+                  </div>
+                  <table class="holo-table" aria-label="Estrofa 3 como registros de la base de datos">
+                    <thead>
+                      <tr><th scope="col">ID</th><th scope="col">VERSO</th><th scope="col">ESTADO</th></tr>
+                    </thead>
+                    <tbody id="holoTableBody">
+                      <tr class="holo-row" id="holoRow1" data-node="muerte"><td class="holo-id">001</td><td class="holo-verse" data-verse="0"></td><td><span class="holo-badge badge-inject">SQL_INJECTION</span></td></tr>
+                      <tr class="holo-row" id="holoRow2" data-node="muerte"><td class="holo-id">002</td><td class="holo-verse" data-verse="1"></td><td><span class="holo-badge badge-refused">CONN_REFUSED</span></td></tr>
+                      <tr class="holo-row" id="holoRow3" data-node="purgatorio"><td class="holo-id">003</td><td class="holo-verse" data-verse="2"></td><td><span class="holo-badge badge-strict">VALIDADO</span></td></tr>
+                      <tr class="holo-row" id="holoRow4" data-node="muerte"><td class="holo-id">004</td><td class="holo-verse" data-verse="3"></td><td><span class="holo-badge badge-rescued">RESCATADA</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="db-confetti-layer" id="dbConfetti" aria-hidden="true"></div>
+        </div>
+
+        <div class="sql-footer-actions">
+          <span class="db-footer-hint" id="dbNetHint"><svg class="ico"><use href="#i-grid"/></svg> Clic en cualquier servidor para consultarlo</span>
+          <button class="btn-reiniciar" id="btnRestartCalaverita"><svg class="ico"><use href="#i-replay"/></svg> Reiniciar desde la portada</button>
+          <button class="btn-db-action" id="btnVerPoemaModal"><svg class="ico"><use href="#i-scroll"/></svg> Ver calaverita completa</button>
+          <button class="btn-db-action" id="btnCopyPoem"><svg class="ico"><use href="#i-copy"/></svg> Copiar versos</button>
+          <button class="btn-db-action btn-celebrate" id="btnCelebrate"><svg class="ico"><use href="#i-spark"/></svg> Celebrar rescate</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+  <!-- Modal: Calaverita completa -->
+  <div class="full-poem-modal" id="fullPoemModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="poem-modal-card">
+      <button class="modal-close-btn" id="closePoemModalBtn" aria-label="Cerrar">×</button>
+      <svg class="modal-logo" viewBox="0 0 200 170" aria-hidden="true"><use href="#logo-itp"/></svg>
+      <h2 class="poem-modal-title" id="modalTitle">Calaverita Literaria</h2>
+      <h3 class="poem-modal-subtitle">Dedicada al Ing. Jorge Martínez Muñoz</h3>
+      <p class="poem-modal-org">Comunidad de Ciencias Computacionales</p>
+
+      <div class="poem-stanzas-container">
+        <div class="poem-card-stanza">
+          <div class="stanza-badge">I · Fundamentos</div>
+          <p class="stanza-text">Llegó la Muerte en Java buscando su setenta,<br>don Jorge vio el programa y le cobró la renta:<br>"Aquí es puro Python o mi amado JavaScript,<br>te llevas un N/A y te borro todo el script".</p>
+        </div>
+        <div class="poem-card-stanza">
+          <div class="stanza-badge">II · Programación Orientada a Objetos</div>
+          <p class="stanza-text">En clase de POO la Parca se trabó,<br>y al profe de repente la memoria le falló.<br>Abrió su ChatGPT para a todos enseñar,<br>pidió que hubiera dudas... y el salón volvió a callar.</p>
+        </div>
+        <div class="poem-card-stanza">
+          <div class="stanza-badge">III · Bases de Datos</div>
+          <p class="stanza-text">Ya en Bases de Datos le intentó inyectar,<br>consultas y registros que no pudo conectar.<br>Aunque exige el código tal como lo explicó,<br>afuera de las aulas, a la Muerte rescató.</p>
+        </div>
+      </div>
+
+      <div class="poem-modal-footer">
+        <button class="btn-primary-modal" id="btnReturnToDeck">Volver a la presentación</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Ayuda -->
+  <div class="full-poem-modal" id="helpModal" aria-hidden="true" role="dialog" aria-labelledby="helpModalTitle">
+    <div class="poem-modal-card help-card">
+      <button class="modal-close-btn" id="closeHelpModalBtn" aria-label="Cerrar">×</button>
+      <h2 class="poem-modal-title" id="helpModalTitle">Atajos e interacciones</h2>
+      <div class="shortcuts-grid">
+        <div class="shortcut-item"><kbd>→</kbd><kbd>Espacio</kbd><span>Siguiente diapositiva</span></div>
+        <div class="shortcut-item"><kbd>←</kbd><span>Diapositiva anterior</span></div>
+        <div class="shortcut-item"><kbd>F</kbd><span>Pantalla completa</span></div>
+        <div class="shortcut-item"><kbd>M</kbd><span>Activar / silenciar sonido</span></div>
+        <div class="shortcut-item"><kbd>R</kbd><span>Reiniciar desde la portada</span></div>
+        <div class="shortcut-item"><kbd>Esc</kbd><span>Cerrar ventanas</span></div>
+      </div>
+      <ul class="help-list">
+        <li><strong>Portada:</strong> clic en el cielo para relámpagos, en el cuervo para que vuele, en las veladoras para avivarlas.</li>
+        <li><strong>POO:</strong> arrastra las clases del diagrama y haz clic en sus métodos para ejecutarlos.</li>
+        <li><strong>Bases de Datos:</strong> clic en cualquier servidor para consultarlo; pasa el cursor por los registros del holograma.</li>
+      </ul>
+      <div class="poem-modal-footer">
+        <button class="btn-primary-modal" id="btnCloseHelp">Entendido</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastNotification" class="toast-notification" aria-live="polite"></div>
+
+  <script src="js/audio.js"></script>
+  <script src="js/cemetery.js"></script>
+  <script src="js/uml.js"></script>
+  <script src="js/dbnet.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
